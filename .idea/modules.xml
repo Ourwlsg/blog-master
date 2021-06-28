@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/blog.iml" filepath="$PROJECT_DIR$/blog.iml" />
+      <module fileurl="file://$PROJECT_DIR$/blog-article-crawler/blog-article-crawler.iml" filepath="$PROJECT_DIR$/blog-article-crawler/blog-article-crawler.iml" />
+      <module fileurl="file://$PROJECT_DIR$/blog-common/blog-common.iml" filepath="$PROJECT_DIR$/blog-common/blog-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/blog-encrypt/blog-encrypt.iml" filepath="$PROJECT_DIR$/blog-encrypt/blog-encrypt.iml" />
+      <module fileurl="file://$PROJECT_DIR$/blog-eureka/blog-eureka.iml" filepath="$PROJECT_DIR$/blog-eureka/blog-eureka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/blog-extension/blog-extension.iml" filepath="$PROJECT_DIR$/blog-extension/blog-extension.iml" />
+      <module fileurl="file://$PROJECT_DIR$/blog-server/blog-server.iml" filepath="$PROJECT_DIR$/blog-server/blog-server.iml" />
+    </modules>
+  </component>
+</project>

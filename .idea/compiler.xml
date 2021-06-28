@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="blog-eureka" />
+        <module name="blog-server" />
+        <module name="blog-extension" />
+        <module name="blog-common" />
+        <module name="blog-article-crawler" />
+        <module name="blog-encrypt" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="blog" target="1.8" />
+      <module name="blog-article-crawler" target="1.8" />
+      <module name="blog-common" target="1.8" />
+      <module name="blog-encrypt" target="1.8" />
+      <module name="blog-eureka" target="1.8" />
+      <module name="blog-extension" target="8" />
+      <module name="blog-server" target="8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="blog-article-crawler" options="-parameters" />
+      <module name="blog-common" options="-parameters" />
+      <module name="blog-encrypt" options="-parameters" />
+      <module name="blog-eureka" options="-parameters" />
+      <module name="blog-extension" options="-parameters" />
+      <module name="blog-server" options="-parameters" />
+    </option>
+  </component>
+</project>

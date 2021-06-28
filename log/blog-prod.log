@@ -1,0 +1,11 @@
+2021-06-26 10:22:32.365  INFO 18232 --- [restartedMain] pers.fjl.server.BlogServerApplication    : The following profiles are active: prod
+2021-06-26 10:22:38.759  WARN 18232 --- [restartedMain] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2021-06-26 10:22:38.774  WARN 18232 --- [restartedMain] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2021-06-26 10:22:41.613  INFO 18232 --- [restartedMain] pers.fjl.server.BlogServerApplication    : Started BlogServerApplication in 12.448 seconds (JVM running for 14.998)
+2021-06-26 10:23:36.182  INFO 18232 --- [http-nio-9002-exec-1] p.f.s.i.AuthenticationInterceptor        : request:[SecurityContextHolderAwareRequestWrapper[ org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterRequest@7dd760fd]]
+2021-06-26 10:23:36.185  INFO 18232 --- [http-nio-9002-exec-1] p.f.s.i.AuthenticationInterceptor        : request.getRemoteHost():[0:0:0:0:0:0:0:1]
+2021-06-26 10:23:39.998  WARN 18232 --- [http-nio-9002-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [514] milliseconds.
+2021-06-26 10:23:42.553  INFO 18232 --- [http-nio-9002-exec-3] p.f.s.i.AuthenticationInterceptor        : request:[SecurityContextHolderAwareRequestWrapper[ org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterRequest@3edf8682]]
+2021-06-26 10:23:42.554  INFO 18232 --- [http-nio-9002-exec-3] p.f.s.i.AuthenticationInterceptor        : request.getRemoteHost():[0:0:0:0:0:0:0:1]
+2021-06-26 10:23:47.259  INFO 18232 --- [http-nio-9002-exec-5] p.f.s.i.AuthenticationInterceptor        : request:[SecurityContextHolderAwareRequestWrapper[ org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterRequest@78b722a6]]
+2021-06-26 10:23:47.260  INFO 18232 --- [http-nio-9002-exec-5] p.f.s.i.AuthenticationInterceptor        : request.getRemoteHost():[0:0:0:0:0:0:0:1]
