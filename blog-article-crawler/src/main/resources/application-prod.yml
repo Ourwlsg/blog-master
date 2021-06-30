@@ -1,11 +1,11 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://39.108.136.207:3306/blog?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT
+    url: jdbc:mysql://39.108.136.207:3306/blog?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8
     username: root
     password: xx
   redis:
-    host: xx
+    host: xx上
 
 ai:
   #  dataPath: G:\repository\crawler #爬取下来的文章的分词文本

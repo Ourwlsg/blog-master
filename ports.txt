@@ -1,0 +1,6 @@
+server: 9002
+extension: 9003
+eureka: 8761
+encrypt: 9001
+crawler: 9005
+ai: 9007
