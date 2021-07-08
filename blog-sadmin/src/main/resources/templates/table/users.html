@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="ThemeBucket">
+    <link rel="shortcut icon" href="#" type="image/png">
+
+    <title>Dynamic Table</title>
+
+    <!--dynamic table-->
+    <link href="js/advanced-datatable/css/demo_page.css" rel="stylesheet"/>
+    <link href="js/advanced-datatable/css/demo_table.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="js/data-tables/DT_bootstrap.css"/>
+    <div th:include="common :: commonheader"></div>
+</head>
+
+<body class="sticky-header">
+
+<section>
+
+    <div th:replace="common :: #leftmenu"></div>
+    <!-- main content start-->
+    <div class="main-content">
+        <div th:replace="common :: headermenu"></div>
+
+        <!-- page heading start-->
+        <div class="page-heading">
+            <h3>
+                用户管理
+            </h3>
+            <ul class="breadcrumb">
+                <li>
+                    <a th:href="@{/main.html}">首页</a>
+                </li>
+                <li>
+                    <a href="#">表格管理</a>
+                </li>
+                <li class="active">用户管理</li>
+            </ul>
+        </div>
+        <!-- page heading end-->
+
+        <div th:replace="Forms/register :: #register_window"></div>
+
+
+        <!--body wrapper start-->
+        <div class="wrapper">
+            <div class="row">
+                <div class="col-sm-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            用户列表
+                            <span class="tools pull-right">
+                <a href="javascript:;" class="fa fa-chevron-down"></a>
+             </span>
+                        </header>
+                        <div class="panel-body">
+                            <button style="margin-bottom: 10px"
+                               class="btn btn-success"
+                               type="button"
+                               data-toggle="modal" data-target="#register"><span
+                                    class="glyphicon glyphicon-user"></span>
+                                添加用户
+                                <i class="fa fa-plus"></i>
+                            </button>
+                            <div class="adv-table">
+                                <table class="display table table-bordered table-striped" id="dynamic-table">
+                                    <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>头像</th>
+                                        <th>用户名</th>
+                                        <th>昵称</th>
+                                        <th>邮箱</th>
+                                        <th>博客数</th>
+                                        <th>注册时间</th>
+                                        <th>最近IP</th>
+                                        <th>禁用状态</th>
+                                        <th>操作</th>
+                                        <!--            <th class="hidden-phone">Engine version</th>-->
+                                        <!--            <th class="hidden-phone">CSS grade</th>-->
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr class="gradeX" th:each="user,stat:${page.records}">
+                                        <td th:text="${stat.count}+(${page.current}-1)*6">0</td>
+                                        <td><img style="width: 30px; height: 30px" th:src="${user.avatar}"
+                                                 alt="avatar"/></td>
+                                        <td th:text="${user.username}">张三</td>
+                                        <td th:text="${user.nickname}"></td>
+                                        <td th:text="${user.email}"></td>
+                                        <td>2</td>
+                                        <td th:text="${user.createTime}"></td>
+                                        <td th:text="${user.lastIp}"></td>
+                                        <td th:text="${user.dataStatus}"></td>
+                                        <td>
+                                            <button class="btn btn-info"
+                                                    type="button">修改
+                                            </button>
+                                            <button class="btn btn-primary"
+                                                    type="button">禁用
+                                            </button>
+                                            <button class="btn btn-danger"
+                                                    data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"
+                                                    type="button">删除
+                                            </button>
+                                        </td>
+                                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                             aria-labelledby="exampleModalLabel">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Close"><span aria-hidden="true">×</span>
+                                                        </button>
+                                                        <h4 class="modal-title" id="exampleModalLabel">确认框</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form>
+                                                            <div class="form-group">
+                                                                <label class="control-label">确定删除？</label>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default"
+                                                                data-dismiss="modal">返回
+                                                        </button>
+                                                        <a type="button" class="btn btn-primary"
+                                                           th:href="@{/userMan/delete/{id}(id=${user.uid}, pn=${page.current})}">确认</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <!--            <td class="center hidden-phone">4</td>-->
+                                        <!--            <td class="center hidden-phone">X</td>-->
+                                    </tr>
+
+
+                                    </tbody>
+                                    <tfoot>
+                                    </tfoot>
+                                </table>
+
+                                <div class="row-fluid">
+                                    <div class="span6">
+                                        <div class="dataTables_info" id="dynamic-table_info">
+                                            当前第 [[${page.current}]] 页 总计 [[${page.pages}]] 页 共计 [[${page.total}]] 条记录
+                                        </div>
+                                    </div>
+                                    <div class="span6">
+                                        <div class="dataTables_paginate paging_bootstrap pagination">
+                                            <ul>
+                                                <li th:class="${page.current <= 1} ? 'prev disabled':'prev'">
+                                                    <a th:href="@{/userMan(pn=${page.current}-1)}">← 上一页</a></li>
+                                                <li th:class="${num == page.current} ? 'active':''"
+                                                    th:each="num:${#numbers.sequence(1,page.pages)}">
+                                                    <a th:href="@{/userMan(pn=${num})}">[[${num}]]</a></li>
+                                                <li th:class="${page.current >= page.pages} ? 'next disabled':'next'"><a
+                                                        th:href="@{/userMan(pn=${page.current}+1)}">下一页 → </a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <!--body wrapper end-->
+
+            <!--footer section start-->
+            <div th:replace="common :: #footer"></div>
+            <!--footer section end-->
+
+
+        </div>
+        <!-- main content end-->
+    </div>
+</section>
+
+<!-- Placed js at the end of the document so the pages load faster -->
+<div th:replace="common :: #commonscript"></div>
+<!--dynamic table-->
+<script type="text/javascript" language="javascript" src="js/advanced-datatable/js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="js/data-tables/DT_bootstrap.js"></script>
+<!--dynamic table initialization -->
+<!--<script src="js/dynamic_table_init.js"></script>-->
+
+<script type="text/javascript">
+    $('#myModal').on('shown.bs.modal', function () {
+        $('#myInput').focus()
+    })
+</script>
+</body>
+</html>
